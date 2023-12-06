@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GuiaTuristica.Views.LoginPage"
+             Title="Login">
+    <VerticalStackLayout Padding="20,20,20,20" VerticalOptions="Center">
+        <Image Source="dotnet.png" HeightRequest="190" Aspect="AspectFit" Margin="0,0,0,50"></Image>
+        <Entry x:Name="txtUsuario" Placeholder="Usuario" Margin="0,0,0,15"></Entry>
+        <Entry x:Name="txtPassword" Placeholder="Password" Margin="0,0,0,15" IsPassword="True"></Entry>
+        <Button x:Name="btnLogin" Text="Ingresar" Margin="0,0,0,15" BackgroundColor="MediumPurple" TextColor="White"
+                Clicked="btnLogin_Clicked"></Button>
+        <Button x:Name="btnRegistro" Text="Registro" Margin="0,0,0,15" BackgroundColor="Transparent" BorderColor="MediumPurple" 
+                BorderWidth="2" TextColor="MediumPurple"></Button>
+    </VerticalStackLayout>
+</ContentPage>

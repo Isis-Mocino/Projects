@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GuiaTuristica.MainPage">
+
+    <Grid BackgroundColor="MediumPurple" RowDefinitions=".05*,.45*,.05*,.45*">
+        <Label Text="Lugares"
+               FontSize="Title"
+               HorizontalOptions="Center"
+               TextColor="White">
+        </Label>
+
+        <CarouselView Grid.Row="1" 
+                      ItemsSource="{Binding Lugares}"
+                      IndicatorView="ivLugares"
+                      PeekAreaInsets="30">
+
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout
+                    Orientation="Horizontal"
+                    ItemSpacing="0"
+                    SnapPointsAlignment="Center"
+                    SnapPointsType="MandatorySingle">
+                </LinearItemsLayout>
+            </CarouselView.ItemsLayout>
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Border
+                            Grid.RowSpan="3"
+                            BackgroundColor="Purple"
+                            HeightRequest="300"
+
+                            WidthRequest="300"
+                            StrokeShape="RoundRectangle 30,30,30,30">
+                            <Grid RowDefinitions=".2*,.5*,.3*">
+                                <Image
+                                    Aspect="AspectFill"
+                                    Source="{Binding Imagen}"
+                                    Grid.RowSpan="3">
+                                </Image>
+                                <RoundRectangle Grid.Row="3"
+                                                HeightRequest="300"
+                                                WidthRequest="300"
+                                                Opacity="1"
+                                                CornerRadius="30">
+                                    <RoundRectangle.Fill>
+                                        <LinearGradientBrush EndPoint="0,1">
+                                            <GradientStop Color="Transparent" Offset="0"></GradientStop>
+                                            <GradientStop Color="Black" Offset="1"></GradientStop>
+                                        </LinearGradientBrush>
+                                    </RoundRectangle.Fill>
+                                </RoundRectangle>
+                                <VerticalStackLayout Grid.Row="2" Margin="20,0,0,5">
+                                    <Label Text="{Binding Nombre}" FontSize="Title"></Label>
+                                    <Label Text="{Binding Descripcion}"></Label>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <IndicatorView
+            x:Name="ivLugares"
+            Grid.Row="3"
+            HorizontalOptions="Center"
+            IndicatorColor="Red"
+            IndicatorSize="8"
+            SelectedIndicatorColor="Green"
+            VerticalOptions="Center">
+        </IndicatorView>
+        
+    </Grid>
+
+</ContentPage>
